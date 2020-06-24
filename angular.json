@@ -2,5 +2,167 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-currency-input": {
+      "projectType": "library",
+      "root": "projects/ngx-currency-input",
+      "sourceRoot": "projects/ngx-currency-input/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-currency-input/tsconfig.lib.json",
+            "project": "projects/ngx-currency-input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-currency-input/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-currency-input/src/test.ts",
+            "tsConfig": "projects/ngx-currency-input/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-currency-input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-currency-input/tsconfig.lib.json",
+              "projects/ngx-currency-input/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-currency-input-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngx-currency-input-demo",
+      "sourceRoot": "projects/ngx-currency-input-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-currency-input-demo",
+            "index": "projects/ngx-currency-input-demo/src/index.html",
+            "main": "projects/ngx-currency-input-demo/src/main.ts",
+            "polyfills": "projects/ngx-currency-input-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-currency-input-demo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngx-currency-input-demo/src/favicon.ico",
+              "projects/ngx-currency-input-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-currency-input-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-currency-input-demo/src/environments/environment.ts",
+                  "with": "projects/ngx-currency-input-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-currency-input-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-currency-input-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-currency-input-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-currency-input-demo/src/test.ts",
+            "polyfills": "projects/ngx-currency-input-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-currency-input-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-currency-input-demo/karma.conf.js",
+            "assets": [
+              "projects/ngx-currency-input-demo/src/favicon.ico",
+              "projects/ngx-currency-input-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-currency-input-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-currency-input-demo/tsconfig.app.json",
+              "projects/ngx-currency-input-demo/tsconfig.spec.json",
+              "projects/ngx-currency-input-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-currency-input-demo/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-currency-input-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-currency-input-demo:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-currency-input"
 }
