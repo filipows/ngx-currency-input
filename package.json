@@ -4,14 +4,18 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:lib && npm run build:demo",
+    "build:lib": "npm run copy:readme && ng build ngx-currency-input",
+    "build:demo": "ng build ngx-currency-input-demo --base-href='https://filipows.github.io/ngx-currency-input/'",
+    "publish:demo": "npx angular-cli-ghpages --dir=./dist/ngx-currency-input",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:lib-coverage": "ng test ngx-currency-input --code-coverage --watch=false",
     "format:check": "prettier --list-different 'projects/**/*.ts'",
     "format:write": "prettier --write 'projects/**/*.ts'",
-    "report-coverage:lib": "cat ./coverage/ngx-currency-input/lcov.info | codecov"
+    "report-coverage:lib": "cat ./coverage/ngx-currency-input/lcov.info | codecov",
+    "copy:readme": "copyfiles ./README.md ./dist/ngx-currency-input"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +41,7 @@
     "@types/node": "^12.11.1",
     "codecov": "^3.7.0",
     "codelyzer": "^5.1.2",
+    "copyfiles": "^2.3.0",
     "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
