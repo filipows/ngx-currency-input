@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "npm run build:lib && npm run build:demo",
-    "build:lib": "npm run copy:readme && ng build ngx-currency-input",
+    "build:lib": "ng build ngx-currency-input && npm run copy:readme",
     "build:demo": "ng build ngx-currency-input-demo --base-href='https://filipows.github.io/ngx-currency-input/'",
     "publish:demo": "npx angular-cli-ghpages --dir=./dist/ngx-currency-input",
     "publish:lib": "npx semantic-release",
