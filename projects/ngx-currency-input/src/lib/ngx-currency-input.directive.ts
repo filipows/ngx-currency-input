@@ -28,7 +28,8 @@ interface ICursorPosition {
 }
 
 @Directive({
-  selector: 'input[formControlName][ngxCurrencyInput], input[formControl][ngxCurrencyInput], input[ngModel][ngxCurrencyInput]',
+  selector:
+    'input[formControlName][ngxCurrencyInput], input[formControl][ngxCurrencyInput], input[ngModel][ngxCurrencyInput]',
   providers: [DecimalPipe, CURRENCYDIRECTIVE_VALUE_ACCESSOR, CURRENCYDIRECTIVE_VALIDAT0R]
 })
 export class CurrencyInputDirective implements ControlValueAccessor, Validator, OnInit {
@@ -61,7 +62,12 @@ export class CurrencyInputDirective implements ControlValueAccessor, Validator, 
   private onChange: (value: string) => void;
   private onTouch: () => void;
 
-  constructor(private decimalPipe: DecimalPipe, private elementRef: ElementRef, private renderer: Renderer2, private injector: Injector) {
+  constructor(
+    private decimalPipe: DecimalPipe,
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    private injector: Injector
+  ) {
     const localeDecimalPointSeparator = this.getLocaleDecimalPointSeparator();
     this.numbersAndDecimalPointSeparatorRegex = new RegExp(`[0-9${localeDecimalPointSeparator}]`, 'g');
   }
@@ -187,8 +193,10 @@ export class CurrencyInputDirective implements ControlValueAccessor, Validator, 
     const numberOfZerosAfterFirstDecimalDigitRegex = `^[0-9]*\\${this.decimalPointSeparator}[1-9](0+)$`;
 
     const valueWithoutSeparators = this.getValueWithoutThousandsSeparator(value);
-    const numberOfZerosAfterDecimalPoint = valueWithoutSeparators.match(numberOfZerosAfterDecimalPointRegex)?.[1].length || 0;
-    const numberOfZerosAfterFirstDecimalDigit = valueWithoutSeparators.match(numberOfZerosAfterFirstDecimalDigitRegex)?.[1].length || 0;
+    const numberOfZerosAfterDecimalPoint =
+      valueWithoutSeparators.match(numberOfZerosAfterDecimalPointRegex)?.[1].length || 0;
+    const numberOfZerosAfterFirstDecimalDigit =
+      valueWithoutSeparators.match(numberOfZerosAfterFirstDecimalDigitRegex)?.[1].length || 0;
 
     const formatted = this.decimalPipe.transform(this.parseLocaleStringToNumber(valueWithoutSeparators), '1.0-2');
     if (numberOfZerosAfterDecimalPoint > 0) {

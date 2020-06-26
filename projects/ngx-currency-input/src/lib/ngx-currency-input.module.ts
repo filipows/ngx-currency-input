@@ -3,8 +3,7 @@ import { CurrencyInputDirective } from './ngx-currency-input.directive';
 
 @NgModule({
   declarations: [CurrencyInputDirective],
-  imports: [
-  ],
+  imports: [],
   exports: [CurrencyInputDirective]
 })
-export class NgxCurrencyInputModule { }
+export class NgxCurrencyInputModule {}
