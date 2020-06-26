@@ -8,8 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "test:lib-coverage": "ng test ngx-currency-input --code-coverage --watch=false",
     "format:check": "prettier --list-different 'projects/**/*.ts'",
-    "format:write": "prettier --write 'projects/**/*.ts'"
+    "format:write": "prettier --write 'projects/**/*.ts'",
+    "report-coverage:lib": "cat ./coverage/ngx-currency-input/lcov.info | codecov"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +35,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "codecov": "^3.7.0",
     "codelyzer": "^5.1.2",
     "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
