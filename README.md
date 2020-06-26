@@ -1,27 +1,30 @@
-# NgxCurrentyInput
+# Angular Currency Input Directive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+Input directive to format number according to users locale and preventing from entering more than 2 decimal places.
 
-## Development server
+### Quick links
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Demo](https://filipows.github.io/ngx-currency-input/) |
+[StackBlitz Template (TODO)](https://filipows.github.io/ngx-currency-input/)
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
 
-## Build
+```bash
+ npm i ngx-currency-input --save
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Usage
 
-## Running unit tests
+```html
+<input ngxCurrencyInput [(ngModel)]="value" />
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+- **Chris Filipowski** - [filipows](https://github.com/filipows)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## License
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
