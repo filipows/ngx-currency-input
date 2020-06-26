@@ -1,6 +1,6 @@
 {
   "name": "ngx-currenty-input",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +15,11 @@
     "format:check": "prettier --list-different 'projects/**/*.ts'",
     "format:write": "prettier --write 'projects/**/*.ts'",
     "report-coverage:lib": "cat ./coverage/ngx-currency-input/lcov.info | codecov",
-    "copy:readme": "copyfiles ./README.md ./dist/ngx-currency-input"
+    "copy:readme": "copyfiles ./README.md ./dist/ngx-currency-input",
+    "semantic-release": "semantic-release",
+    "adjust-version": "npm-run-all adjust-version:*",
+    "adjust-version:lib": "rjp projects/ngx-currency-input/package.json version $VERSION",
+    "adjust-version:main": "rjp package.json version $VERSION"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +40,9 @@
     "@angular-devkit/build-ng-packagr": "~0.901.9",
     "@angular/cli": "~9.1.9",
     "@angular/compiler-cli": "~9.1.11",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@commitlint/prompt": "^9.0.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -52,20 +59,32 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "lint-staged": "^10.2.11",
     "ng-packagr": "^9.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "protractor": "~7.0.0",
+    "semantic-release": "^17.1.1",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "projects/**/*.ts": [
       "prettier --write"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipows/ngx-currency-input.git"
   }
 }
