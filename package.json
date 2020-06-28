@@ -1,6 +1,6 @@
 {
   "name": "ngx-currenty-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Angular Currency Input Directive",
   "scripts": {
     "ng": "ng",
@@ -81,13 +81,19 @@
     "type": "git",
     "url": "https://github.com/filipows/ngx-currency-input.git"
   },
-  "keywords": ["angular", "currency", "decimal", "input", "directive"],
+  "keywords": [
+    "angular",
+    "currency",
+    "decimal",
+    "input",
+    "directive"
+  ],
   "author": "Chris Filipowski",
   "bugs": {
     "url": "https://github.com/filipows/ngx-currency-input/issues"
   },
-  "homepage": "https://github.com/filipows/ngx-currency-input#readme",  
-  "license": "MIT",    
+  "homepage": "https://github.com/filipows/ngx-currency-input#readme",
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
