@@ -22,10 +22,39 @@ Input directive to format number according to users locale and preventing from e
  npm i ngx-currency-input --save
 ```
 
+### Import NgxCurrencyInput Module
+
+```ts
+import { NgxCurrencyInputModule } from 'ngx-currency-input';
+
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...
+    NgxCurrencyInputModule
+  ]
+})
+export class AppModule {}
+```
+
 ### Usage
 
 ```html
 <input ngxCurrencyInput [(ngModel)]="value" />
+```
+
+### Available Options
+
+| Name                                 | Description                                                                        |
+| ------------------------------------ | ---------------------------------------------------------------------------------- |
+| @Input() `formatOnlyOnBlur`: boolean | When `true`, the input won't be formatted while entering a value. Default: `false` |
+| @Input() `min`: number               | Validation min value                                                               |
+| @Input() `max`: number               | Validation max value                                                               |
+
+Example:
+
+```html
+<input ngxCurrencyInput [formatOnlyOnBlur]="true" [min]="10" [max]="1000" [(ngModel)]="value" />
 ```
 
 ## Authors

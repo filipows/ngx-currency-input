@@ -33,7 +33,7 @@ interface ICursorPosition {
   providers: [DecimalPipe, CURRENCYDIRECTIVE_VALUE_ACCESSOR, CURRENCYDIRECTIVE_VALIDAT0R]
 })
 export class CurrencyInputDirective implements ControlValueAccessor, Validator, OnInit {
-  @Input() formatOnlyOnBlur = true;
+  @Input() formatOnlyOnBlur = false;
   @Input() min: number;
   @Input() max: number;
 
