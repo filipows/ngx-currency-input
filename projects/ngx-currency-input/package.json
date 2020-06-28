@@ -7,5 +7,22 @@
   },
   "dependencies": {
     "tslib": "^1.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipows/ngx-currency-input.git"
+  },
+  "keywords": [
+    "angular",
+    "currency",
+    "decimal",
+    "input",
+    "directive"
+  ],
+  "author": "Chris Filipowski",
+  "bugs": {
+    "url": "https://github.com/filipows/ngx-currency-input/issues"
+  },
+  "homepage": "https://github.com/filipows/ngx-currency-input#readme",
+  "license": "MIT"
 }
