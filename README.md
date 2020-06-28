@@ -12,7 +12,7 @@ Input directive to format number according to users locale and preventing from e
 ### Quick links
 
 [Demo](https://filipows.github.io/ngx-currency-input/) |
-[StackBlitz Template (TODO)](https://filipows.github.io/ngx-currency-input/)
+[StackBlitz Template](https://stackblitz.com/edit/ngx-currency-input?file=src/app/app.component.html)
 
 ## Getting Started
 
